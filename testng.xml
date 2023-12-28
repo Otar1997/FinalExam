@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+    <test name="WebTest">
+        <classes>
+            <class name="LoginData.LoginUser"></class>
+            <class name="ProductFilter.ProductDropDown"></class>
+            <class name="AddProductsInCart.CartTest"></class>
+            <class name="CheckOut.CheckOutTest"></class>
+        </classes>
+    </test>
+</suite>
