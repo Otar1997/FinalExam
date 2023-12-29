@@ -1,8 +1,8 @@
 package LoginData;
 
+import DataObject.LoginData;
 import StepObject.LogInSteps;
 import Utils.Browser;
-import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,8 +21,8 @@ public class LoginUser extends Browser {
         WebDriver driver = openBrowser();
         LogInSteps logInSteps = new LogInSteps(driver);
 
-        logInSteps.usernameFieldAction("standard_user");
-        logInSteps.passwordFieldAction("secret_sauce");
+        logInSteps.usernameFieldAction(LoginData.STANDARD_USER);
+        logInSteps.passwordFieldAction(LoginData.CORRECT_PASSWORD);
         logInSteps.logInButtonAction();
 
         //checking if we logged in website successfully
@@ -37,9 +37,8 @@ public class LoginUser extends Browser {
         LogInSteps logInSteps = new LogInSteps(driver);
 
         //getting random username and password
-        Faker faker = new Faker();
-        String username = faker.name().username();
-        String password = faker.internet().password();
+        String username = LoginData.fakerName();
+        String password = LoginData.fakerLastName();
         String expectedResult = "Epic sadface: Username and password do not match any user in this service";
         //getting web elements from website and fill with username and password
         logInSteps.usernameFieldAction(username);
@@ -61,8 +60,8 @@ public class LoginUser extends Browser {
         WebDriver driver = openBrowser();
         LogInSteps logInSteps = new LogInSteps(driver);
         //Login with Perf Glitch user
-        logInSteps.usernameFieldAction("performance_glitch_user");
-        logInSteps.passwordFieldAction("secret_sauce");
+        logInSteps.usernameFieldAction(LoginData.PERFORMANCE_GLITCH_USER);
+        logInSteps.passwordFieldAction(LoginData.CORRECT_PASSWORD);
 
         //Record start time before login button is clicked
         long startTime = System.currentTimeMillis();

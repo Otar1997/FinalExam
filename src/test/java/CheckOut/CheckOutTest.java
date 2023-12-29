@@ -1,5 +1,6 @@
 package CheckOut;
 
+import DataObject.LoginData;
 import StepObject.LogInSteps;
 import StepObject.ProductAdd;
 import Utils.Browser;
@@ -88,8 +89,8 @@ public class CheckOutTest extends Browser {
         LogInSteps logInSteps = new LogInSteps(driver);
         ProductAdd productAdd = new ProductAdd(driver);
         //login with problem user
-        logInSteps.usernameFieldAction("problem_user");
-        logInSteps.passwordFieldAction("secret_sauce");
+        logInSteps.usernameFieldAction(LoginData.PROBLEM_USER);
+        logInSteps.passwordFieldAction(LoginData.CORRECT_PASSWORD);
         logInSteps.logInButtonAction();
 
         //Add one item to cart
@@ -121,8 +122,8 @@ public class CheckOutTest extends Browser {
     }
     //helper methods
     private void getCheckoutPage(LogInSteps logInSteps, ProductAdd productAdd) {
-        logInSteps.usernameFieldAction("standard_user");
-        logInSteps.passwordFieldAction("secret_sauce");
+        logInSteps.usernameFieldAction(LoginData.STANDARD_USER);
+        logInSteps.passwordFieldAction(LoginData.CORRECT_PASSWORD);
         logInSteps.logInButtonAction();
 
         productAdd.addToCart("item_4_title_link", "add-to-cart-sauce-labs-backpack");

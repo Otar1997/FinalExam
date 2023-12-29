@@ -1,5 +1,8 @@
 package AddProductsInCart;
 
+
+
+import DataObject.LoginData;
 import StepObject.LogInSteps;
 import StepObject.ProductAdd;
 import Utils.Browser;
@@ -11,6 +14,9 @@ import org.testng.Assert;
 
 import java.util.List;
 
+
+
+
 public class CartTest extends Browser {
 
 
@@ -20,8 +26,8 @@ public class CartTest extends Browser {
         LogInSteps logInSteps = new LogInSteps(driver);
         ProductAdd productAdd = new ProductAdd(driver);
         //login with standard user
-        logInSteps.usernameFieldAction("standard_user");
-        logInSteps.passwordFieldAction("secret_sauce");
+        logInSteps.usernameFieldAction(LoginData.STANDARD_USER);
+        logInSteps.passwordFieldAction(LoginData.CORRECT_PASSWORD);
         logInSteps.logInButtonAction();
 
         //declare product ids button ids (indexes match, for example item_1_title_link match to add-to-cart-sauce-labs-bolt-t-shirt)
@@ -51,8 +57,8 @@ public class CartTest extends Browser {
         ProductAdd productAdd = new ProductAdd(driver);
 
         //login with problem user
-        logInSteps.usernameFieldAction("problem_user");
-        logInSteps.passwordFieldAction("secret_sauce");
+        logInSteps.usernameFieldAction(LoginData.PROBLEM_USER);
+        logInSteps.passwordFieldAction(LoginData.CORRECT_PASSWORD);
         logInSteps.logInButtonAction();
 
         //store products in all items list

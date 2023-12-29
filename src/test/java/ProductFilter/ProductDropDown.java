@@ -1,5 +1,6 @@
 package ProductFilter;
 
+import DataObject.LoginData;
 import StepObject.LogInSteps;
 import Utils.Browser;
 import org.openqa.selenium.By;
@@ -20,8 +21,8 @@ public class ProductDropDown extends Browser {
         WebDriver driver=openBrowser();
         LogInSteps logInSteps = new LogInSteps(driver);
         //login with standard user
-        logInSteps.usernameFieldAction("standard_user");
-        logInSteps.passwordFieldAction("secret_sauce");
+        logInSteps.usernameFieldAction(LoginData.STANDARD_USER);
+        logInSteps.passwordFieldAction(LoginData.CORRECT_PASSWORD);
         logInSteps.logInButtonAction();
 
         //click sort filter
@@ -52,8 +53,8 @@ public class ProductDropDown extends Browser {
         LogInSteps logInSteps = new LogInSteps(driver);
 
         //login with problem user
-        logInSteps.usernameFieldAction("problem_user");
-        logInSteps.passwordFieldAction("secret_sauce");
+        logInSteps.usernameFieldAction(LoginData.PROBLEM_USER);
+        logInSteps.passwordFieldAction(LoginData.CORRECT_PASSWORD);
         logInSteps.logInButtonAction();
 
         //click sort filter
